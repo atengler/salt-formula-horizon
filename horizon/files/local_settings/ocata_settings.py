@@ -57,6 +57,18 @@ INSTALLED_APPS = (
     {%- endif %}
 )
 
+# Path to directory containing policy.json files
+#POLICY_FILES_PATH = os.path.join(ROOT_PATH, "conf")
+# Map of local copy of service policy files
+POLICY_FILES = {
+    'identity': 'keystone_policy.json',
+    'compute': 'nova_policy.json',
+    'network': 'neutron_policy.json',
+    'image': 'glance_policy.json',
+    'volume': 'cinder_policy.json',
+    'orchestration': 'heat_policy.json'
+}
+
 {% include "horizon/files/horizon_settings/_local_settings.py" %}
 {% include "horizon/files/horizon_settings/_horizon_settings.py" %}
 {% include "horizon/files/horizon_settings/_keystone_settings.py" %}
@@ -66,3 +78,4 @@ INSTALLED_APPS = (
 {% include "horizon/files/horizon_settings/_heat_settings.py" %}
 {% include "horizon/files/horizon_settings/_websso_settings.py" %}
 {% include "horizon/files/horizon_settings/_ssl_settings.py" %}
+

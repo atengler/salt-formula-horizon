@@ -23,19 +23,9 @@
 {%- if server.session_timeout is defined %}
 SESSION_TIMEOUT = {{ server.session_timeout }}
 {%- endif %}
-
-# Path to directory containing policy.json files
-#POLICY_FILES_PATH = os.path.join(ROOT_PATH, "conf")
-# Map of local copy of service policy files
-POLICY_FILES = {
-    'identity': 'keystone_policy.json',
-    'compute': 'nova_policy.json',
-    'network': 'neutron_policy.json',
-    'image': 'glance_policy.json',
-    'volume': 'cinder_policy.json',
-    'telemetry': 'ceilometer_policy.json',
-    'orchestration': 'heat_policy.json'
-}
+{%- if server.session_engine is defined %}
+SESSION_ENGINE = '{{ server.session_engine }}'
+{%- endif %}
 
 LOGGING = {
     'version': 1,

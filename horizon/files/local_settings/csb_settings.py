@@ -55,3 +55,4 @@ MEDIA_ROOT = '/srv/horizon/sites/{{ app_name }}/media/'
 STATIC_ROOT = '/srv/horizon/sites/{{ app_name }}/static/'
 
 {% include "horizon/files/horizon_settings/_local_settings.py" %}
+
